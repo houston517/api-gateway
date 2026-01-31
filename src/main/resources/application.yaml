@@ -9,23 +9,7 @@ spring:
             - id: status
               uri: http://localhost:8080
               predicates:
-                - Path=/status/{segment}
-                - Method=GET
-              filters:
-                - SetPath=/api/v1/flowmanager/status/{segment}
-            - id: upload
-              uri: http://localhost:8080
-              predicates:
-                - Path=/upload
-                - Method=POST
-              filters:
-                - SetPath=/api/v1/flowmanager/upload
-            - id: download
-              uri: http://localhost:8080
-              predicates:
-                - Path=/download/{segment}
-                - Method=GET
-              filters:
-                - SetPath=/api/v1/flowmanager/download/{segment}
+                - Path=/api/v1/flowmanager/**
+                - Method=GET,POST
 server:
   port: 8081
